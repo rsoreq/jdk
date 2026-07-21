@@ -37,13 +37,13 @@ runs:
 
     - name: 'Check cache for already built JTReg'
       id: get-cached
-      uses: actions/cache@v4
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
         path: jtreg/installed
         key: jtreg-${{ steps.version.outputs.value }}
 
     - name: 'Checkout the JTReg source'
-      uses: actions/checkout@v4
+      uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       with:
         repository: openjdk/jtreg
         ref: jtreg-${{ steps.version.outputs.value }}
@@ -61,7 +61,7 @@ runs:
       if: (steps.get-cached.outputs.cache-hit != 'true')
 
     - name: 'Upload JTReg artifact'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
         name: bundles-jtreg-${{ steps.version.outputs.value }}
         path: jtreg/installed
